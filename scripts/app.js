@@ -8,7 +8,7 @@ const week = document.querySelector('.forecast__wrapper');
 
 const updateUI = data => {
   const { cityDetails, currentWeather, forecast } = data;
-  console.log(cityDetails, currentWeather, forecast);
+
   const today = new Date(forecast.DailyForecasts[0].Date).toLocaleDateString('cs', { weekday: 'long' });
   const todayDate = new Date(forecast.DailyForecasts[0].Date).toLocaleDateString('cs', { day: 'numeric', month: 'long', year: 'numeric' });
   const day1 = new Date(forecast.DailyForecasts[1].Date).toLocaleDateString('cs', { weekday: 'short' });
