@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App v2</title>
+    <script src="https://kit.fontawesome.com/adac62cc78.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <form>
+        <input type="text" id="city" autocomplete="off" placeholder="Zadej město">
+    </form>
+    <div class="container d-none">
+        <div class="thumb">
+            <div class="day">Čtvrtek</div>
+            <div class="date">15 Srp 2019</div>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="city">-</span>, <span class="country">-</span>
+            </div>
+            <div class="icon">
+                <img src="" id="thumbIcon" alt="weather icon">
+            </div>
+            <div class="temperature">
+                <span>0</span>&deg;C
+            </div>
+            <div class="text">-</div>
+        </div>
+        <div class="forecast">
+            <div class="precipitation">
+                <div class="precipitation__title">Pravděpodobnost srážek</div>
+                <div class="precipitation__value">0 %</div>
+            </div>
+            <div class="humidity">
+                <div class="humidity__title">Vlhkost</div>
+                <div class="humidity__value">0 %</div>
+            </div>
+            <div class="wind">
+                <div class="wind__title">Vítr</div>
+                <div class="wind__value">0 km/h</div>
+            </div>
+            <div class="forecast__wrapper">
+                <!-- <div class="forecast__col active">
+                    <div class="forecast__icon">
+                        <img src="" alt="forecast icon">
+                    </div>
+                    <div class="forecast__day">Mon</div>
+                    <div class="forecast__temperature">
+                        <span>0</span>&deg;C
+                    </div>
+                </div> -->
+                <div class="forecast__col">
+                    <div class="forecast__icon">
+                        <img src="" alt="forecast icon">
+                    </div>
+                    <div class="forecast__day">Mon</div>
+                    <div class="forecast__temperature">
+                        <span>0</span>&deg;C
+                    </div>
+                </div>
+                <div class="forecast__col">
+                    <div class="forecast__icon">
+                        <img src="" alt="forecast icon">
+                    </div>
+                    <div class="forecast__day">Mon</div>
+                    <div class="forecast__temperature">
+                        <span>0</span>&deg;C
+                    </div>
+                </div>
+                <div class="forecast__col">
+                    <div class="forecast__icon">
+                        <img src="" alt="forecast icon">
+                    </div>
+                    <div class="forecast__day">Mon</div>
+                    <div class="forecast__temperature">
+                        <span>0</span>&deg;C
+                    </div>
+                </div>
+                <div class="forecast__col">
+                    <div class="forecast__icon">
+                        <img src="" alt="forecast icon">
+                    </div>
+                    <div class="forecast__day">Mon</div>
+                    <div class="forecast__temperature">
+                        <span>0</span>&deg;C
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/forecast.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
