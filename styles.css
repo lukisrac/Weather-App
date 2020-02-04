@@ -7,6 +7,12 @@
   outline: none;
   font-family: 'Montserrat', sans-serif;
 }
+.page {
+  display: none;
+}
+.page.loaded {
+  display: block;
+}
 html,
 body {
   background: #485563; /* fallback for old browsers */
