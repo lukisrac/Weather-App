@@ -39,7 +39,7 @@ body {
   transition: all 0.3s ease;
   opacity: 1;
 }
-.preloader.hide {
+.preloader.loaded {
   opacity: 0;
 }
 svg {
@@ -76,13 +76,6 @@ circle {
   100% {
     stroke-dashoffset: -125px;
   }
-}
-.page {
-  opacity: 0;
-  transition: all 0.2s ease;
-}
-.page.loaded {
-  opacity: 1;
 }
 .container {
   background: #222831;

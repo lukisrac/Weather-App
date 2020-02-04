@@ -11,10 +11,8 @@ const week = document.querySelector('.forecast__wrapper');
 // Hide preloader after page is loaded
 window.addEventListener('load', () => {
   const preloader = document.querySelector('.preloader');
-  const page = document.querySelector('.page');
   setTimeout(() => {
-    preloader.classList.add('hide');
-    page.classList.add('loaded');
+    preloader.classList.add('loaded');
   }, 1000);
   setTimeout(() => {
     preloader.style.display = 'none';
