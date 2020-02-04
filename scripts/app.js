@@ -8,6 +8,17 @@ const humidity = document.querySelector('.humidity__value');
 const wind = document.querySelector('.wind__value');
 const week = document.querySelector('.forecast__wrapper');
 
+// Hide preloader after page is loaded
+window.addEventListener('load', () => {
+  const preloader = document.querySelector('.preloader');
+  setTimeout(() => {
+    preloader.classList.add('loaded');
+  }, 1000);
+  setTimeout(() => {
+    preloader.style.display = 'none';
+  }, 1500);
+});
+
 const updateUI = data => {
   const { cityDetails, currentWeather, forecast } = data;
 
