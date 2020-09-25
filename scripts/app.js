@@ -1,51 +1,38 @@
-import { getCity, getCurrentWeather, getForecast } from './forecast.js';
+import { getCity, getCurrentWeather, getForecast } from "./forecast.js";
 
-const container = document.querySelector('.container');
-const form = document.querySelector('form');
-const thumb = document.querySelector('.thumb');
-const precipitation = document.querySelector('.precipitation__value');
-const humidity = document.querySelector('.humidity__value');
-const wind = document.querySelector('.wind__value');
-const week = document.querySelector('.forecast__wrapper');
+const container = document.querySelector(".container");
+const form = document.querySelector("form");
+const thumb = document.querySelector(".thumb");
+const precipitation = document.querySelector(".precipitation__value");
+const humidity = document.querySelector(".humidity__value");
+const wind = document.querySelector(".wind__value");
+const week = document.querySelector(".forecast__wrapper");
+
+const hidePreloader = (preloader) => {
+  setTimeout(() => {
+    preloader.classList.add("loaded");
+  }, 200);
+};
 
 // Hide preloader after page is loaded
-window.addEventListener('load', () => {
-  const preloader = document.querySelector('.preloader');
-  const page = document.querySelector('.page');
-  setTimeout(() => {
-    preloader.classList.add('loaded');
-    page.classList.add('loaded');
-  }, 1000);
-  setTimeout(() => {
-    preloader.style.display = 'none';
-  }, 1500);
+window.addEventListener("load", () => {
+  const preloader = document.querySelector(".preloader");
+  hidePreloader(preloader);
 });
 
-const updateUI = data => {
+const updateUI = (data) => {
   const { cityDetails, currentWeather, forecast } = data;
 
-  const today = new Date(
-    forecast.DailyForecasts[0].Date
-  ).toLocaleDateString('en', { weekday: 'long' });
-  const todayDate = new Date(
-    forecast.DailyForecasts[0].Date
-  ).toLocaleDateString('en', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
+  const today = new Date(forecast.DailyForecasts[0].Date).toLocaleDateString("en", { weekday: "long" });
+  const todayDate = new Date(forecast.DailyForecasts[0].Date).toLocaleDateString("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   });
-  const day1 = new Date(
-    forecast.DailyForecasts[1].Date
-  ).toLocaleDateString('en', { weekday: 'short' });
-  const day2 = new Date(
-    forecast.DailyForecasts[2].Date
-  ).toLocaleDateString('en', { weekday: 'short' });
-  const day3 = new Date(
-    forecast.DailyForecasts[3].Date
-  ).toLocaleDateString('en', { weekday: 'short' });
-  const day4 = new Date(
-    forecast.DailyForecasts[4].Date
-  ).toLocaleDateString('en', { weekday: 'short' });
+  const day1 = new Date(forecast.DailyForecasts[1].Date).toLocaleDateString("en", { weekday: "short" });
+  const day2 = new Date(forecast.DailyForecasts[2].Date).toLocaleDateString("en", { weekday: "short" });
+  const day3 = new Date(forecast.DailyForecasts[3].Date).toLocaleDateString("en", { weekday: "short" });
+  const day4 = new Date(forecast.DailyForecasts[4].Date).toLocaleDateString("en", { weekday: "short" });
 
   thumb.innerHTML = `
   <div class="day">${today}</div>
@@ -106,12 +93,12 @@ const updateUI = data => {
     </div>
   `;
 
-  if (container.classList.contains('d-none')) {
-    container.classList.remove('d-none');
+  if (container.classList.contains("d-none")) {
+    container.classList.remove("d-none");
   }
 };
 
-const updateCity = async city => {
+const updateCity = async (city) => {
   const cityDetails = await getCity(city);
   const currentWeather = await getCurrentWeather(cityDetails.Key);
   const forecast = await getForecast(cityDetails.Key);
@@ -119,12 +106,12 @@ const updateCity = async city => {
   return { cityDetails, currentWeather, forecast };
 };
 
-form.addEventListener('submit', e => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const city = form.city.value.trim();
   form.reset();
   updateCity(city)
-    .then(data => updateUI(data))
-    .catch(err => console.log(err));
+    .then((data) => updateUI(data))
+    .catch((err) => console.log(err.message));
 });
